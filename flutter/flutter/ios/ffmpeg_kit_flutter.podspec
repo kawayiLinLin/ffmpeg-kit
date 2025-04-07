@@ -20,11 +20,21 @@ Pod::Spec.new do |s|
   s.dependency          'Flutter'
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
 
+  # s.subspec 'min' do |ss|
+  #   ss.source_files         = 'Classes/**/*'
+  #   ss.public_header_files  = 'Classes/**/*.h'
+  #   ss.dependency 'ffmpeg-kit-ios-min', "6.0"
+  #   ss.ios.deployment_target = '12.1'
+  # end
   s.subspec 'min' do |ss|
-    ss.source_files         = 'Classes/**/*'
-    ss.public_header_files  = 'Classes/**/*.h'
-    ss.dependency 'ffmpeg-kit-ios-min', "6.0"
-    ss.ios.deployment_target = '12.1'
+    ss.vendored_frameworks = 'Frameworks/ffmpeg-kit-ios-min/ffmpegkit.xcframework', 
+    'Frameworks/ffmpeg-kit-ios-min/libavcodec.xcframework',
+    'Frameworks/ffmpeg-kit-ios-min/libavdevice.xcframework', 
+    'Frameworks/ffmpeg-kit-ios-min/libavfilter.xcframework', 
+    'Frameworks/ffmpeg-kit-ios-min/libavformat.xcframework', 
+    'Frameworks/ffmpeg-kit-ios-min/libavutil.xcframework', 
+    'Frameworks/ffmpeg-kit-ios-min/libswresample.xcframework', 
+    'Frameworks/ffmpeg-kit-ios-min/libswscale.xcframework'
   end
 
   s.subspec 'min-lts' do |ss|

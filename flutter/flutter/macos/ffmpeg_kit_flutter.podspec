@@ -20,11 +20,22 @@ Pod::Spec.new do |s|
   s.dependency          'FlutterMacOS'
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
 
+  # s.subspec 'min' do |ss|
+  #   ss.source_files         = 'Classes/**/*'
+  #   ss.public_header_files  = 'Classes/**/*.h'
+  #   ss.dependency 'ffmpeg-kit-macos-min', "6.0"
+  #   ss.osx.deployment_target = '10.15'
+  # end
+
   s.subspec 'min' do |ss|
-    ss.source_files         = 'Classes/**/*'
-    ss.public_header_files  = 'Classes/**/*.h'
-    ss.dependency 'ffmpeg-kit-macos-min', "6.0"
-    ss.osx.deployment_target = '10.15'
+    ss.vendored_frameworks = 'Frameworks/ffmpeg-kit-macos-min/ffmpegkit.xcframework', 
+    'Frameworks/ffmpeg-kit-macos-min/libavcodec.xcframework',
+    'Frameworks/ffmpeg-kit-macos-min/libavdevice.xcframework', 
+    'Frameworks/ffmpeg-kit-macos-min/libavfilter.xcframework', 
+    'Frameworks/ffmpeg-kit-macos-min/libavformat.xcframework', 
+    'Frameworks/ffmpeg-kit-macos-min/libavutil.xcframework', 
+    'Frameworks/ffmpeg-kit-macos-min/libswresample.xcframework', 
+    'Frameworks/ffmpeg-kit-macos-min/libswscale.xcframework'
   end
 
   s.subspec 'min-lts' do |ss|
