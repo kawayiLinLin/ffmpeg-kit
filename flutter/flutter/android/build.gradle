@@ -4,7 +4,7 @@ buildscript {
         mavenCentral()
 
         flatDir {
-            dirs 'libs'
+            dirs project(':ffmpeg-kit-flutter-android').file('libs')
         }
     }
 
