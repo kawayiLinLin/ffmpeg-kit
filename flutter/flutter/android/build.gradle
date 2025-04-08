@@ -2,10 +2,6 @@ buildscript {
     repositories {
         google()
         mavenCentral()
-
-        flatDir {
-            dirs project(':ffmpeg-kit-flutter-android').file('libs')
-        }
     }
 
     dependencies {
@@ -17,6 +13,10 @@ rootProject.allprojects {
     repositories {
         google()
         mavenCentral()
+
+        flatDir {
+            dirs project(':ffmpeg_kit_flutter_min').file('libs')
+        }
     }
 }
 
@@ -58,5 +58,5 @@ dependencies {
     // implementation files('./libs/smart-exception-java-0.2.1.jar')
     // implementation files('./libs/smart-exception-common-0.2.1.jar')
 
-    implementation(name: 'ffmpeg-kit-https', ext: 'aar')
+    implementation(name: 'ffmpeg-kit-https-6.0-2', ext: 'aar')
 }
